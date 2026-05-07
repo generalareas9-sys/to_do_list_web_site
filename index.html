@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>To-Do List</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="header">
+      <div>
+        <h1>To-Do List</h1>
+        <p>Track tasks with add, complete, edit, filter, and local storage.</p>
+      </div>
+      <div class="header-actions">
+        <button id="themeToggle" class="secondary-button">Light/Dark</button>
+        <button id="clearCompleted" class="secondary-button">Clear Completed</button>
+        <button id="clearAll" class="secondary-button">Clear All</button>
+      </div>
+    </header>
+
+    <section class="new-task-panel">
+      <form id="taskForm" class="task-form">
+        <input id="taskInput" type="text" placeholder="Add a new task" autocomplete="off" />
+        <button type="submit" class="primary-button">Add Task</button>
+      </form>
+      <div class="task-controls">
+        <nav class="filters" aria-label="Task filters">
+          <button data-filter="all" class="filter-button active">All</button>
+          <button data-filter="active" class="filter-button">Active</button>
+          <button data-filter="completed" class="filter-button">Completed</button>
+        </nav>
+        <div class="status">
+          <span id="taskCount">0 tasks</span>
+        </div>
+      </div>
+    </section>
+
+    <main>
+      <ul id="taskList" class="task-list"></ul>
+      <div id="emptyState" class="empty-state">No tasks yet. Add one to get started.</div>
+    </main>
+  </div>
+
+  <template id="taskTemplate">
+    <li class="task-item">
+      <label class="task-checkbox-label">
+        <input type="checkbox" class="task-checkbox" />
+        <span class="task-text"></span>
+      </label>
+      <div class="task-actions">
+        <button class="icon-button edit-button" title="Edit task">✎</button>
+        <button class="icon-button delete-button" title="Delete task">🗑</button>
+      </div>
+    </li>
+  </template>
+
+  <script src="script.js"></script>
+</body>
+</html>
